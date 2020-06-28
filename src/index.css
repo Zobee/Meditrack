@@ -56,3 +56,32 @@
 .timer-input:focus{
   border: solid 2px black;
 }
+
+.header{
+  background-color: #203040;
+  color: #FFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  z-index: 2;
+}
+
+.header a{
+  color: #FFF;
+  margin: 0 0.5rem;
+  transition: all 0.5s ease;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: all 0.5s ease;
+}
+
+.header-links a:hover{
+  color: #FF8000;
+}
+
+.brand a{
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 0.5rem;
+}

@@ -39,7 +39,7 @@ function Timer({timeUp}) {
       }
       if(seconds === 0){
           if(minutes === 0){
-              timeUp()
+              timeUp(time/60)
           } else if(isPaused){
             clearInterval(interval);
           } else {
