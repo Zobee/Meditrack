@@ -3,7 +3,8 @@ import {Link} from 'react-router-dom'
 
 function SignIn() {
     return (
-        <div>
+        <div className='form-container'>
+            <h1>Log In</h1>
             <div className='form'>
                 <form>
                     <input 
@@ -20,7 +21,7 @@ function SignIn() {
                 </form>
             </div>
             <div>
-                Want to Join? <Link to='signup'>Sign Up Here</Link>
+                <p>Want to Join? <Link to='signup'>Sign Up Here</Link></p>
             </div>
         </div>
     )

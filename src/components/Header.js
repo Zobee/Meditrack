@@ -18,7 +18,7 @@ function Header() {
                 <Link to="/">Meditrack</Link>
             </div>
             <div className="header-links">
-                <Link to="/login    ">Sign In</Link>{/*Change to sign out route*/}
+                <Link to="/login">Sign In</Link>{/*Change to sign out route*/}
                 <Link to='/about'>About</Link>
                 {/*<Link to="/user:id">Character</Link>*/}
                 {/*<Link to="/user:id/settings">Settings</Link>*/}

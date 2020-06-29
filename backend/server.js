@@ -1,7 +1,12 @@
 const express = require('express')
 const moment = require('moment')
+const mongoose = require('mongoose')
+const dotenv = require('dotenv')
+
+dotenv.config()
 
 const app = express()
+
 
 const logger = (req,res,next) => {
     let log = `LOG : ${req.protocol}://${req.get('host')}${req.originalUrl}: ${moment().format().substring(0,10)}`;
@@ -9,15 +14,19 @@ const logger = (req,res,next) => {
     next()
 }
 
-//app.use(express.json())
 //app.use(logger)
+app.use(express.json())
 
+const authRoute = require('./routes/authRoute')
+const postRoute = require('./routes/postRoute')
 
-app.get('/', (req,res) => {
-    res.send("Hello")
-})
+mongoose.connect(
+    process.env.DB_URI, 
+    {useUnifiedTopology: true, useNewUrlParser: true}, 
+    ()=>console.log("Connected to DB."))
 
-
+app.use('/api/users', authRoute)
+app.use('/posts', postRoute)
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {

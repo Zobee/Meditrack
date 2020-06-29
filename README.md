@@ -35,3 +35,11 @@ Next Next Step: Create a User Model and build up a tiny backend
 Currently the timer page is the first thing that pops up. Maybe change that to a landing page instead. That's way later though. 
 
 The other thing I need to do is figure out how the character is gonna work. I'm thinking gym-rat style. Where your relationship with your v-pet increases the more you meditate. You can buy it clothing/decorative items, have conversations with it. I want it to be the thing that greets you when you start the app. It'll ask you a question about how you're feeling, and will cater a particular type of meditation based on your response. Again, that's hella far away. I've got a bunch to do before I get there. The biggest obstacle is probably me getting bored. Which is why I really need to focus on small, attainable goals for now.
+
+------------------------------------------------------------------------------------------------V 0.0.4
+
+Added a basic backend login/sign up route with JOI validation and JWT authentication, with MongoDB as the backend database. I'll need to refactor the code later, but learning about hashing passwords, and building auth middleware was an interesting learning experience. I'm not 100% sure about how to hook it up to the front-end properly, but I've got some ideas.
+
+I'll need to learn about redirection and routing after making requests. I'll probably also want to learn more about how hashing with bcrypt and JWT actually works under the hood, if I wanna turn this into a public app.  
+
+Next Step: Sign up and login routes on the front-end. Sign up should re-direct to login page, and login should redirect to the user's dashboard. Maybe figure out how to fire an email to the new user with their credentials, but that seems a bit above my pay-grade right now.

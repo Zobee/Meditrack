@@ -3,7 +3,8 @@ import {Link} from 'react-router-dom'
 
 function SignUp() {
     return (
-        <div>
+        <div className='form-container'>
+            <h1>Sign Up</h1>
             <div className='form'>
                 <form>
                     <input 
@@ -25,7 +26,7 @@ function SignUp() {
                 <h1>Sign Up With Facebook/Google/Pornhub</h1>
             </div>
             <div>
-                Already have an account? <Link to='login'>Sign in</Link>
+                <p>Already have an account? <Link to='login'>Sign in</Link></p>
             </div>
         </div>
     )
