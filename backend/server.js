@@ -2,6 +2,7 @@ const express = require('express')
 const moment = require('moment')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
+const cors = require('cors')
 
 dotenv.config()
 
@@ -15,7 +16,9 @@ const logger = (req,res,next) => {
 }
 
 //app.use(logger)
+app.use(cors())
 app.use(express.json())
+
 
 const authRoute = require('./routes/authRoute')
 const postRoute = require('./routes/postRoute')

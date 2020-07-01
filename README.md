@@ -51,3 +51,10 @@ V 0.0.5
 
 Controlled state for front-end signup/login pages. 
 Added labels.
+
+Got the sign up and login routes working. Redirection is a bit clunky, still. But I'm glad I found a way to get protected routing all nice and loaded and stuff. It's SUPER rudimentary, but it's mine. I made it. So that's cool.
+
+Also, shit. I'm a fuckin idiot and exposed my URI to the world. EMERGENCY DELETION, BABY
+REMEMBER TO CHANGE URI AND SECRET TOKEN BEFORE GOING LEGIT WITH THIS
+
+Next Step: Add to the User model, and allow users to add meditation sessions, which can then be seen on their dashboard.

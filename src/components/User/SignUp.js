@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react' 
 import {Link} from 'react-router-dom'
+import axios from 'axios'
 
 function SignUp() {
     const [username, setUsername] = useState('')
@@ -8,7 +9,14 @@ function SignUp() {
 
     let handleSubmit = (e) => {
         e.preventDefault()
-        console.log(username, email, password);
+        let newUser = {
+            username,
+            email,
+            password
+        }
+        axios.post("http://localhost:5000/api/users/signup", newUser)
+        .then(res => console.log(res.data))
+        window.location = '/login'
     }
     return (
         <div className='form-container'>
