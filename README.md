@@ -58,3 +58,18 @@ Also, shit. I'm a fuckin idiot and exposed my URI to the world. EMERGENCY DELETI
 REMEMBER TO CHANGE URI AND SECRET TOKEN BEFORE GOING LEGIT WITH THIS
 
 Next Step: Add to the User model, and allow users to add meditation sessions, which can then be seen on their dashboard.
+
+------------------------------------------------------------------------------------------------
+V 0.0.6
+
+We in the context api era now, baby. I'm not sure if I'm using it 100% correctly. But for simple state management, it seems to work well. I could just use a function to check if the token is still in local storage, I guess. But this takes up less code... I think. 
+
+The biggest issue I have right now is that re-directs are a bit clunky. The component gets rendered and then redirects. I want the redirect to happen before the component renders. I think putting the redirect logic in the parent component could help with that. So I'll mess around with this a bit, until I figure out what the hell it is I'm doing. It doesn't seem right to have the token added to localstorage as a separate thing from the user context. 
+
+Conditional Header Link Render dependent on logged status. I added a logout button that removes the token from localstorage, and returns everything to it's default, logged out state. It's a little fidgety, but I think with a bit more cleanup, it'll work.
+
+Maybe I should add a landing page. The timer is the first thing you see. It's also not private. I'm not sure if I should private the route. 
+
+I've also added super simple (and not totally done) backend routes to add meditations, update the user's character, and delete user accounts. CRUD, baby.
+
+Next Step: Add the front-end for the routes I've made. 

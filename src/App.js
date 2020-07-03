@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 
 import Header from './components/Header'
@@ -8,18 +8,24 @@ import About from './components/About'
 import SignUp from './components/User/SignUp';
 import Character from './components/User/Character'
 
-function App() {
 
+import {AuthProvider} from './components/AuthContext'
+
+function App() {
 
   return(
     <div>
+      <AuthProvider>
       <Header/>
+      </AuthProvider>
       <Switch>
         <Route exact path='/' component={TimerRoute}/>
+        <Route path='/about' component={About}/>
+        <AuthProvider>
+        <Route path='/character' component={Character}/>
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={SignUp}/>
-        <Route path='/about' component={About}/>
-        <Route path='/character' component={Character}/>
+        </AuthProvider>
       </Switch>
     </div>
 

@@ -1,10 +1,15 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
+import {AuthContext} from '../AuthContext'
+
 function Login() {
+    const [user, setUser] = useContext(AuthContext)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    if(user) window.location = '/'
 
     let handleSubmit = (e) => {
         e.preventDefault()
@@ -14,13 +19,16 @@ function Login() {
         }
 
         axios.post("http://localhost:5000/api/users/login", login)
-        .then(res => {
+        .then((res) => { 
             console.log(res.data)
             localStorage.setItem('auth-token', res.data)
+            window.location = '/'
         })
-
-        //Create a conditional here so redirection only happens on a real login
-        //window.location = '/character'
+        .catch(err => {
+            console.log(err);
+            //Find a way to match error with input field
+        })
+        
     }
     return (
         <div className='form-container'>

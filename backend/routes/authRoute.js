@@ -47,7 +47,7 @@ router.route('/login').post(async (req,res) => {
     
     //Ensure email is in db
     const user = await User.findOne({email: req.body.email})
-    if(!user) return res.status(400).json("Email does not exist!")
+    if(!user) return res.status(400).json({error : "Email does not exist!"})
 
     //Checks password
     const validPw = await bcrypt.compare(req.body.password, user.password)

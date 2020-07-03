@@ -1,16 +1,25 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
+
+import {AuthContext} from './AuthContext'
 
 //Assign header vals a state of logged in. If logged, then certain header items will be present.
 //Ternary operator
 
-function Header() {
+const Header = () => {
     //let toggleMenu = () => {
         //let sidebar = document.querySelector(".sidebar")
         //!sidebar.classList.contains('open') ? 
         //sidebar.classList.add('open') :
         //sidebar.classList.remove('open')
     //} 
+    const [user, setUser] = useContext(AuthContext)
+    
+    const signOut = () => {
+        localStorage.removeItem('auth-token',user)
+        setUser(null)
+    }
+
     return (
         <div>
             <header className="header">
@@ -18,10 +27,15 @@ function Header() {
                 <Link to="/">Meditrack</Link>
             </div>
             <div className="header-links">
-                <Link to="/login">Sign In</Link>{/*Change to sign out route*/}
+                {!user ? <Link to="/login">Sign In</Link> : <Link to="/character">Character</Link>}       {/*Change to sign out route*/}
                 <Link to='/about'>About</Link>
-                {/*<Link to="/user:id">Character</Link>*/}
-                {/*<Link to="/user:id/settings">Settings</Link>*/}
+                {user && 
+                    <span>
+                        <Link to="/settings">Settings</Link>
+                        <Link to='/' onClick={signOut}>Sign Out</Link>
+                    </span>
+                }
+            
             </div>
         </header>
         </div>

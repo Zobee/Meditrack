@@ -1,11 +1,16 @@
-import React, {useState, useEffect} from 'react' 
+import React, {useState, useEffect, useContext} from 'react' 
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import {AuthContext} from '../AuthContext'
 
 function SignUp() {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const [user, setUser] = useContext(AuthContext)
+
+    if(user) window.location = '/'
 
     let handleSubmit = (e) => {
         e.preventDefault()
