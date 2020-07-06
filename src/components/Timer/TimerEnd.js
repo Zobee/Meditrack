@@ -1,8 +1,16 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {AuthContext} from '../AuthContext'
+import axios from 'axios'
 
 function TimerEnd({timeUp, minsMeditated}) {
+    const [user, setUser] = useContext(AuthContext)
     const saveToDb = () => {
-        console.log("Saved...");
+        
+        axios.post("http://localhost:5000/posts/addMeditation", {duration : minsMeditated}, {headers : {"auth-token":localStorage.getItem("auth-token")}})
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err))
+
+        window.location = '/'
     }
     return (
         <div>

@@ -12,16 +12,16 @@ Next Steps:
 *Gamification elements that actually make this a worthwhile meditation app.
 
 ------------------------------------------------------------------------------------------------
-V. 0.0.2
 
+V. 0.0.2
 New Feature: ...minutes
 
 Got the minutes working! It took a minute (ha) to actually get the progress bar moving, but I'm glad I got it. The display should count down the minutes and seconds, and accurately display them in the middle radial thing. Next phase is the time management. Doesn't seem too hard after that.
 
 
 ------------------------------------------------------------------------------------------------
-V. 0.0.3
 
+V. 0.0.3
 Header
 TimeUp
 Super Rudimentary login/sign up routes
@@ -37,8 +37,8 @@ Currently the timer page is the first thing that pops up. Maybe change that to a
 The other thing I need to do is figure out how the character is gonna work. I'm thinking gym-rat style. Where your relationship with your v-pet increases the more you meditate. You can buy it clothing/decorative items, have conversations with it. I want it to be the thing that greets you when you start the app. It'll ask you a question about how you're feeling, and will cater a particular type of meditation based on your response. Again, that's hella far away. I've got a bunch to do before I get there. The biggest obstacle is probably me getting bored. Which is why I really need to focus on small, attainable goals for now.
 
 -----------------------------------------------------------------------------------------------
-V 0.0.4
 
+V 0.0.4
 Added a basic backend login/sign up route with JOI validation and JWT authentication, with MongoDB as the backend database. I'll need to refactor the code later, but learning about hashing passwords, and building auth middleware was an interesting learning experience. I'm not 100% sure about how to hook it up to the front-end properly, but I've got some ideas.
 
 I'll need to learn about redirection and routing after making requests. I'll probably also want to learn more about how hashing with bcrypt and JWT actually works under the hood, if I wanna turn this into a public app.  
@@ -47,8 +47,8 @@ Next Step: Sign up and login routes on the front-end. Sign up should re-direct t
 
 
 ------------------------------------------------------------------------------------------------
-V 0.0.5
 
+V 0.0.5
 Controlled state for front-end signup/login pages. 
 Added labels.
 
@@ -60,8 +60,8 @@ REMEMBER TO CHANGE URI AND SECRET TOKEN BEFORE GOING LEGIT WITH THIS
 Next Step: Add to the User model, and allow users to add meditation sessions, which can then be seen on their dashboard.
 
 ------------------------------------------------------------------------------------------------
-V 0.0.6
 
+V 0.0.6
 We in the context api era now, baby. I'm not sure if I'm using it 100% correctly. But for simple state management, it seems to work well. I could just use a function to check if the token is still in local storage, I guess. But this takes up less code... I think. 
 
 The biggest issue I have right now is that re-directs are a bit clunky. The component gets rendered and then redirects. I want the redirect to happen before the component renders. I think putting the redirect logic in the parent component could help with that. So I'll mess around with this a bit, until I figure out what the hell it is I'm doing. It doesn't seem right to have the token added to localstorage as a separate thing from the user context. 
@@ -73,3 +73,23 @@ Maybe I should add a landing page. The timer is the first thing you see. It's al
 I've also added super simple (and not totally done) backend routes to add meditations, update the user's character, and delete user accounts. CRUD, baby.
 
 Next Step: Add the front-end for the routes I've made. 
+
+------------------------------------------------------------------------------------------------
+
+V 0.0.7
+Kinda got some front-end connectivity going. It's really simple, but I think it's so cool that this works. We have full-blown CRUD now. Function to save meditation to history created. Character component gets information about the character and presents it. A delete account button that... does exactly what you think.
+
+Also made some slight tweaks to the userModel for later.
+
+Maybe I should destructure the user object in the context component, instead of sending it to components that require context wholesale? I should probably have all axios functions declared here, then just shove it all into an object.
+
+Removed the 'About' component. If I'm gonna be using a landing page, it's redundant to have an about page. I'm not sure if I want to incorporate a sign up form on the landing page, or just have a CTA button.
+
+Added a bit of styling to the home/landing page, and sign-in. Nothing too drastic. I also made a logo. 
+
+Next Step:
+
+Find a way to cleanly display dates on the front-end (will probably need to clean them up on the backend first). 
+Style the character page and create a way to update the character info on the front-end. 
+Also, should probably find a way to make jwts expire
+Create a landing page

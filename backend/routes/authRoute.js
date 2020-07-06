@@ -3,7 +3,6 @@ const validation = require('../validation')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
-
 const router = require('express').Router()
 
 //Test Route
@@ -20,7 +19,6 @@ router.route('/signup').post(async (req,res) => {
     //Make sure the email isn't already in use
     const userExists = await User.findOne({email: req.body.email})
     if(userExists) return res.status(400).json("Email is already in use!")
-
     //Hash pw
     const salt = await bcrypt.genSalt(10)
     const hashPass = await bcrypt.hash(req.body.password, salt)
@@ -59,5 +57,6 @@ router.route('/login').post(async (req,res) => {
 
     //res.json(`Welcome, ${user.username}. Your token ${token}`)
 })
+
 
 module.exports = router

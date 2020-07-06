@@ -24,11 +24,11 @@ const Header = () => {
         <div>
             <header className="header">
             <div className="brand">
+                <Link to="/"><img src='img/logo.png' /></Link>
                 <Link to="/">Meditrack</Link>
             </div>
             <div className="header-links">
-                {!user ? <Link to="/login">Sign In</Link> : <Link to="/character">Character</Link>}       {/*Change to sign out route*/}
-                <Link to='/about'>About</Link>
+                {!user ? <Link to="/login">Sign In</Link> : <Link to="/character">Character</Link>}
                 {user && 
                     <span>
                         <Link to="/settings">Settings</Link>

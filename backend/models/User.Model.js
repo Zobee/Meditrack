@@ -1,20 +1,5 @@
 const mongoose = require("mongoose")
 
-const charStatSchema = mongoose.Schema({
-    meditatedToday: {
-        type: Boolean,
-        default: false
-    },
-    timesMeditated: {
-        type: Number,
-        default: 0
-    },
-    meditationHistory: {
-        type: Array,
-        default: []
-    }
-}, {timestamps: true})
-
 const userSchema = mongoose.Schema({
     username: {
         type: String,
@@ -33,6 +18,10 @@ const userSchema = mongoose.Schema({
         name: {
             type: String,
             default: "Frank"
+        },
+        color: {
+            type: String,
+            default: 'Red'
         },
         status: {
             meditatedToday: {

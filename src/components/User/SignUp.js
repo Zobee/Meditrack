@@ -7,6 +7,7 @@ function SignUp() {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [confirmPw, setconfirmPw] = useState('')
 
     const [user, setUser] = useContext(AuthContext)
 
@@ -17,7 +18,8 @@ function SignUp() {
         let newUser = {
             username,
             email,
-            password
+            password,
+            confirmPw
         }
         axios.post("http://localhost:5000/api/users/signup", newUser)
         .then(res => console.log(res.data))
@@ -28,7 +30,8 @@ function SignUp() {
             <h1>Sign Up</h1>
             <div className='form'>
             <form>
-                    <label>Username</label>
+                <div>
+                <label>Username</label>
                     <input 
                     type="text"
                     placeholder="username"
@@ -37,7 +40,9 @@ function SignUp() {
                     value={username}
                     onChange={(e)=>setUsername(e.target.value)}
                     />
-                    <label>Email Address</label>
+                </div>
+                <div>
+                <label>Email Address</label>
                     <input 
                     type="email"
                     placeholder="Email Address"
@@ -46,7 +51,9 @@ function SignUp() {
                     value={email}
                     onChange={(e)=>setEmail(e.target.value)}
                     />
-                    <label>Password</label>
+                </div>
+                <div>
+                <label>Password</label>
                     <input
                     type="password"
                     placeholder="password"
@@ -55,6 +62,18 @@ function SignUp() {
                     value={password}
                     onChange={(e)=>setPassword(e.target.value)}
                     />
+                </div>
+                <div>
+                <label>Confirm Password</label>
+                    <input
+                    type="password"
+                    placeholder="confirm password"
+                    id="confirmPw"
+                    name="confirmPw"
+                    value={confirmPw}
+                    onChange={(e)=>setconfirmPw(e.target.value)}
+                    />
+                </div>
                     <button type='submit' onClick={(e)=>handleSubmit(e)}>Sign Up</button>
                 </form>
                 <h1>Sign Up With Facebook/Google/Pornhub</h1>

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {Prompt} from 'react-router-dom'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
@@ -56,6 +57,12 @@ function Timer({timeUp}) {
   
     return (
         <div className='timer'>
+        <React.Fragment>
+          <Prompt
+          when={circleVal < 100 && circleVal > 0}
+          message="You're still meditating! Your progress won't be saved. Are you sure you want to leave the page?"
+          />
+        </React.Fragment>
           <CircularProgressbar 
           value={circleVal} 
           text={seconds < 10 ? `${minutes}:0${seconds}`:`${minutes}:${seconds}`}/>

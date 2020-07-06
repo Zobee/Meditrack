@@ -4,7 +4,8 @@ let validateSignup = (msg) => {
     let schema = Joi.object({
         username: Joi.string().required(),
         email: Joi.string().email().required(),
-        password:  Joi.string().min(6).required()
+        password:  Joi.string().min(6).required(),
+        confirmPw: Joi.any().valid(Joi.ref('password'))
     })
     return schema.validate(msg)
 }
