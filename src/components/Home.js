@@ -1,22 +1,29 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
+import {Link} from 'react-router-dom'
+import {AuthContext} from './AuthContext'
 
-function Home() {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faFacebook, faTwitter, faInstagram, faLinkedin} from '@fortawesome/free-brands-svg-icons'
+let Home = () => {
+    const [user, setUser] = useContext(AuthContext)
+
+    //if(user) window.location = '/'
+
     return (
         <div>
             <div className='landing-header'>
                 <div className='landing-header-text'>
-                    <h1 className='landing-title'>Meditrack</h1>
-                    <h5 className='landing-subtitle'>Make Meditation Fun</h5>
-                    <p>This is my mission statement. It's really gonna make you want to sign up.</p>
+                    <h1 className='landing-title'>Ponder</h1>
+                    <h5 className='landing-subtitle'>Dive Deeper</h5>
                 </div>
         
                 <div className='header-content-container'>
                     <div className='header-content-left'>
-                        <img src='#' className="header-img"/>
+                        <img src='img/jelly.png' className="header-img"/>
                     </div>
                     <div className='header-content-right'>
-                        <p>COOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONTENT CONTENT COOOOONENTTNRNT</p>
-                        <button className='header-btn'>Let's Get Started</button>
+                        <h1>Mindfulness Made Easy</h1>
+                        <Link to='/signup' className='header-btn'>Let's Get Started</Link>
                     </div>
                 </div>
                 <div className='landing-content'>
@@ -31,14 +38,16 @@ function Home() {
 
                     <div className='social-buttons'>
                         <h5>Socials</h5>
-                        <button>Facebook</button>
-                        <button>Instagram</button>
-                        <button>Twitter</button>
-                        <button>LinkedIn</button>
+                        <a className='social-btn' href='http://www.facebook.com'><FontAwesomeIcon size="2x" icon={faFacebook}/></a>
+                        <a className='social-btn' href='http://www.twitter.com'><FontAwesomeIcon size="2x" icon={faTwitter}/></a>
+                        <a className='social-btn' href='http://www.instagram.com'><FontAwesomeIcon size="2x" icon={faInstagram}/></a>
+                        <a className='social-btn' href='http://www.linkedin.com'><FontAwesomeIcon size="2x" icon={faLinkedin}/></a>
                     </div>
                 </div>
 
             </div>
+            <div className="home-page-circle-1"></div>
+            <div className="home-page-circle-2"></div>
         </div>
     )
 }

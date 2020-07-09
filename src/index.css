@@ -4,6 +4,17 @@
   box-sizing: border-box;
 }
 
+.app{
+  /*background: linear-gradient(88deg, #110231, #443454);*/
+  background: linear-gradient(5deg, #09435d, #317dc3, #0db1a3);
+  color: #FFF;
+}
+
+.body{
+  background-color: white;
+  color: black;
+}
+
 .timer-page{
   display: flex;
   flex-direction: column;
@@ -58,10 +69,10 @@
 }
 
 .header{
-  background-color: #203040;
-  color: #FFF;
+  /*background-color: #203040;
+  color: #FFF;*/
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   padding: 0.5rem 0;
   z-index: 2;
@@ -156,44 +167,46 @@ button[type=submit]:hover {
 
 /*Landing Page*/
 .landing-header{
-  background-color: #221231;
-  color: #FFF;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   flex-grow: 1;
+  padding: 1rem 0 0;
 }
 
 .header-content-container{
   display: flex;
+  flex-grow: 1;
   justify-content: space-around;
+  padding: 1rem 5rem 0;
 }
 
 .landing-header-text{
   text-align: center;
-  margin: 2rem 0;
-  font-size: 2rem;
+  margin: 1rem 0 3.5rem;
+  font-size: 3.2rem;
+  letter-spacing: 1.2rem;
 }
 
-.header-content-left
+.header-content-container .header-content-left{
+  justify-self: flex-end;
+}
 
-.header-content-right{
+.header-content-container .header-content-right{
   display: flex;
-  flex-direction: column;   
-  align-items: flex-start;
-  margin: 1rem;
+  flex-direction: column;
+  max-width: 50vw;
+  margin: auto;
   align-self: center;
+  font-size: 2rem;
+  justify-self: flex-start;
 }
 
 .header-img{
-  background-image: "img/logo.png";
   flex-grow: 1;
-  max-height: 70vh;
+  max-height: 50vh;
   min-width: 30vw;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom left;
 }
 
 .landing-content{
@@ -202,33 +215,63 @@ button[type=submit]:hover {
   justify-content: space-around;
   margin: 2rem 0 0;
   padding: 2rem;
-  background-color: #110121;
-
+  background-color: #072e41;
+  z-index: 1;
 }
 
 .landing-content h5{
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   margin-bottom: 0.5rem;
 }
 
-
 .header-btn{
   color: white;
-  background-color: #1762A7;
+  background-color: #eb781b;
   padding: .75rem 1.5rem;
+  margin-top: 0.5rem;
   border-radius: 0.5rem;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 1.4rem;
+  text-align: center;
   transition: linear 0.2s all;
   outline: none;
   border: none;
   cursor: pointer;
+  width: 50%;
+  align-self: center;
+  z-index: 2;
 }
 
 .header-btn:hover{
-  background-color: #2873B8;
+  background-color: #f89232;
 }
 
 .header-btn:focus{
   background-color: #3994C9;
+}
+
+.social-buttons .social-btn{
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  color: white;
+}
+
+.home-page-circle-1{
+  position: absolute;
+  width: 25vw;
+  height: 25vw;
+  border-radius: 50%;
+  background-color: rgba(209, 231, 226, 0.1);
+  bottom: 5vw;
+  right: 5vw;
+}
+
+.home-page-circle-2{
+  position: absolute;
+  width: 15vw;
+  height: 15vw;
+  border-radius: 50%;
+  background-color: rgba(209, 231, 226, 0.1);
+  top: 10vw;
+  left: 15vw;
 }

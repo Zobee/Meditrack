@@ -14,7 +14,7 @@ const Header = () => {
         //sidebar.classList.remove('open')
     //} 
     const [user, setUser] = useContext(AuthContext)
-    
+
     const signOut = () => {
         localStorage.removeItem('auth-token',user)
         setUser(null)
@@ -24,8 +24,8 @@ const Header = () => {
         <div>
             <header className="header">
             <div className="brand">
-                <Link to="/"><img src='img/logo.png' /></Link>
-                <Link to="/">Meditrack</Link>
+                <Link to={user ? "/" : "/landing"}><img src='img/logo.png' /></Link>
+                <Link to={user ? "/" : "/landing"}>Ponder</Link>
             </div>
             <div className="header-links">
                 {!user ? <Link to="/login">Sign In</Link> : <Link to="/character">Character</Link>}

@@ -15,12 +15,14 @@ function Character() {
     },[user])
 
     const deleteUser = () => {
-        axios.delete("http://localhost:5000/posts/delete", {headers : {"auth-token":localStorage.getItem("auth-token")}})
-        localStorage.removeItem("auth-token")
-        window.location = '/'
+        if(window.confirm("Are you sure?")){
+            axios.delete("http://localhost:5000/posts/delete", {headers : {"auth-token":localStorage.getItem("auth-token")}})
+            localStorage.removeItem("auth-token")
+            window.location = '/'
+        }
     }
     return (
-        <div>
+        <div className='body'>
             {loaded ? 
             (<div>
                 <img src={`img/medichan-${user.character.color}.png`}/>

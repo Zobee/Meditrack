@@ -15,14 +15,14 @@ import {AuthProvider} from './components/AuthContext'
 function App() {
 
   return(
-    <div>
+    <div className='app'>
       <AuthProvider>
       <Header/>
       </AuthProvider>
       <Switch>
-        <Route path='/home' component={Home}/>
         <AuthProvider>
         <Route exact path='/' component={TimerRoute}/>
+        <Route path='/landing' component={Home}/>
         <Route path='/character' component={Character}/>
         <Route path='/update' component={EditCharacter}/>
         <Route path='/login' component={Login}/>

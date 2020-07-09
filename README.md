@@ -93,3 +93,11 @@ Find a way to cleanly display dates on the front-end (will probably need to clea
 Style the character page and create a way to update the character info on the front-end. 
 Also, should probably find a way to make jwts expire
 Create a landing page
+
+
+------------------------------------------------------------------------------------------------
+V 0.0.8
+I spent way too much time on getting a rudimentary landing page going, but we gotty. My code looks like dogshit, but I'm glad that I'm steadily making progress. Got some linking and re-direction set up, and I changed the name to ponder. Since we're getting kinda fishy anyway.
+
+Next Step:
+Revamp the character page. I think it's a bit too early to add all the gamification elements I'm thinking about, but I can't do any of it without first getting the character page up and running.
