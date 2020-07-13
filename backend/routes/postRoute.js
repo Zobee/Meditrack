@@ -26,7 +26,7 @@ router.route('/addMeditation').post(auth, (req,res) => {
             }
         )
         user.character.status.timesMeditated = user.character.status.timesMeditated + req.body.duration
-
+        
         user.save()
         .then(() => res.json("Meditation Added"))
         .catch(err => res.status(400).json(`Error ${err}`))
@@ -45,6 +45,18 @@ router.route('/update').post(auth, (req,res) => {
         .catch(err => res.status(400).json(`Error ${err}`))
     })
     .catch(err => res.status(400).json(`Error ${err}`))
+})
+
+//Get Meditation History
+router.route('/history').get(auth, (req,res) => {
+    User.findById(req.user._id)
+    .then(user => {
+        const history = user.character.status.meditationHistory
+        res.json(history)
+    })
+    .catch(err => {
+        res.status(400).json(err)
+    })
 })
 
 //Clear Meditation History

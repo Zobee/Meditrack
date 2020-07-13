@@ -24,10 +24,6 @@ const userSchema = mongoose.Schema({
             default: 'Red'
         },
         status: {
-            meditatedToday: {
-                type: Boolean,
-                default: false
-            },
             timesMeditated: {
                 type: Number,
                 default: 0

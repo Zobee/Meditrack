@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 .app{
@@ -88,7 +91,11 @@
 }
 
 .header-links a:hover{
-  color: #9c80c8;
+  color: #f89232;
+}
+
+.header-links a:focus{
+  color: #f89232;
 }
 
 .brand{
@@ -137,7 +144,6 @@
   font-size: larger;
 }
 
-/* Style inputs */
 input, select {
   width: 80%;
   padding: 0.8rem 1.3rem;
@@ -147,7 +153,6 @@ input, select {
   box-sizing: border-box;
 }
 
-/* Style the submit button */
 button[type=submit] {
   width: 80%;
   background-color: #203040;
@@ -159,27 +164,33 @@ button[type=submit] {
   cursor: pointer;
 }
 
-/* Add a background color to the submit button on mouse-over */
 button[type=submit]:hover {
   background-color: #315150;
 }
 
+.form-err{
+  border: solid 2px red;
+}
+
 
 /*Landing Page*/
+.landing{
+  height: 93vh;
+}
+
 .landing-header{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  flex-grow: 1;
-  padding: 1rem 0 0;
+  padding: 0.5rem 0 0;
 }
 
 .header-content-container{
   display: flex;
-  flex-grow: 1;
   justify-content: space-around;
   padding: 1rem 5rem 0;
+  flex-grow: 1;
 }
 
 .landing-header-text{
@@ -215,8 +226,9 @@ button[type=submit]:hover {
   justify-content: space-around;
   margin: 2rem 0 0;
   padding: 2rem;
-  background-color: #072e41;
+  background-color: #172e41;
   z-index: 1;
+  height: 20vh;
 }
 
 .landing-content h5{
@@ -254,6 +266,15 @@ button[type=submit]:hover {
   border-radius: 50%;
   margin-right: 0.5rem;
   color: white;
+  transition: all linear 0.5s;
+}
+
+.social-buttons .social-btn:hover{
+  color: #f89232;
+}
+
+.social-buttons .social-btn:focus{
+  color: #f89232;
 }
 
 .home-page-circle-1{
@@ -274,4 +295,102 @@ button[type=submit]:hover {
   background-color: rgba(209, 231, 226, 0.1);
   top: 10vw;
   left: 15vw;
+}
+
+.home-page-circle-3{
+  position: absolute;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 50%;
+  background-color: rgba(209, 231, 226, 0.1);
+  bottom: 10vw;
+  left: 30vw;
+}
+
+/*Character Page*/
+.character-title{
+  font-size: 4rem;
+  letter-spacing: 1rem;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.character-container{
+  display: flex;
+  justify-content: space-around;
+  margin: 4rem auto 0;
+  border: solid 2px black;
+  max-width: 80vw;
+  padding: 1rem;
+  font-size: 3rem;
+}
+
+.character-img{
+  text-align: center;
+  padding: 0 auto;
+  flex: 1;
+}
+
+.exp-bar{
+  height: 1rem;
+  background-color: green;
+  margin: 0 auto;
+  max-width: 50%;
+}
+
+.character-stats{
+  flex: 1;
+  margin: auto;
+}
+
+.char-btn-container{
+  text-align: center;
+  margin: 0 auto;
+  border: solid 2px black;
+  max-width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.char-btn-container button{
+  font-size: 2.5rem;
+  margin: 1rem;
+}
+
+.cal{
+  height: 15vw;
+  width: 15vw;
+  background-color: red;
+}
+
+.achievement-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.achievement{
+  padding: 0;
+  margin: 0;
+}
+
+.achievement span{
+  opacity: 0;
+  display: flex;
+  position: absolute;
+  z-index: 2;
+  margin-top: 5rem;
+  background-color: #333;
+  color: #FFF;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  transition: all 0.2s ease-in-out;
+  transform: translateY(-2rem);
+}
+
+.achievement:hover span{
+  opacity: 1;
+  transform: translateY(0);
 }

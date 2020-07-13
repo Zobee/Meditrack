@@ -1,16 +1,16 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
 import {AuthContext} from './AuthContext'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faFacebook, faTwitter, faInstagram, faLinkedin} from '@fortawesome/free-brands-svg-icons'
 let Home = () => {
-    const [user, setUser] = useContext(AuthContext)
+    //const [user, setUser] = useContext(AuthContext)
 
     //if(user) window.location = '/'
 
     return (
-        <div>
+        <div className='landing'>
             <div className='landing-header'>
                 <div className='landing-header-text'>
                     <h1 className='landing-title'>Ponder</h1>
@@ -48,6 +48,8 @@ let Home = () => {
             </div>
             <div className="home-page-circle-1"></div>
             <div className="home-page-circle-2"></div>
+            <div className="home-page-circle-3"></div>
+            <div className='home-page-circle-4'></div>
         </div>
     )
 }

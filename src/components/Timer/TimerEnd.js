@@ -5,7 +5,6 @@ import axios from 'axios'
 function TimerEnd({timeUp, minsMeditated}) {
     const [user, setUser] = useContext(AuthContext)
     const saveToDb = () => {
-        
         axios.post("http://localhost:5000/posts/addMeditation", {duration : minsMeditated}, {headers : {"auth-token":localStorage.getItem("auth-token")}})
         .then(res => console.log(res.data))
         .catch(err => console.log(err))

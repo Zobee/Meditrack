@@ -8,9 +8,10 @@ function SignUp() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPw, setconfirmPw] = useState('')
+    const [err, setErr] = useState('')
 
     const [user, setUser] = useContext(AuthContext)
-
+    
     if(user) window.location = '/'
 
     let handleSubmit = (e) => {
@@ -22,18 +23,27 @@ function SignUp() {
             confirmPw
         }
         axios.post("http://localhost:5000/api/users/signup", newUser)
-        .then(res => console.log(res.data))
-        window.location = '/login'
+        .then((res) => {
+            console.log(res.data);
+            window.location = '/login'
+        })
+        .catch(err => {
+            let error = err.response.data.split(' ')[0].toLowerCase().replace(/['"]+/g, '');
+            setErr(error)
+        })
     }
     return (
-        <div className='form-container'>
+        <div className='form-container body'>
             <h1>Sign Up</h1>
+            {err}
             <div className='form'>
             <form>
                 <div>
                 <label>Username</label>
                     <input 
                     type="text"
+                    required
+                    className={err === "username" ? "form-err" : ""}
                     placeholder="username"
                     id="username"
                     name="username"
@@ -45,6 +55,8 @@ function SignUp() {
                 <label>Email Address</label>
                     <input 
                     type="email"
+                    required
+                    className={err === "email" ? "form-err" : ""}
                     placeholder="Email Address"
                     id='email'
                     name='email'
@@ -56,6 +68,8 @@ function SignUp() {
                 <label>Password</label>
                     <input
                     type="password"
+                    required
+                    className={err === "password" ? "form-err" : ""}
                     placeholder="password"
                     id="password"
                     name="password"
@@ -67,6 +81,8 @@ function SignUp() {
                 <label>Confirm Password</label>
                     <input
                     type="password"
+                    required
+                    className={err === "confirmPw" ? "form-err" : ""}
                     placeholder="confirm password"
                     id="confirmPw"
                     name="confirmPw"

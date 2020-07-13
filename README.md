@@ -101,3 +101,34 @@ I spent way too much time on getting a rudimentary landing page going, but we go
 
 Next Step:
 Revamp the character page. I think it's a bit too early to add all the gamification elements I'm thinking about, but I can't do any of it without first getting the character page up and running.
+
+
+------------------------------------------------------------------------------------------------
+V 0.0.9
+
+I'm reusing code in a lot of places. The biggest offender is 
+"if(!user) window.location = '/landing'"
+I should find a way to cut that shit out.
+Beyond reuse. It doesn't work great. If you reload, you'll get redirected to the landing page.
+That's cause of the big issue I've been avoiding, and that's useContext ain't working like I thought.
+*I've found a sorta solution, but it feels hacky. I'm currently using it in the 'character' component, where
+
+GAME BREAKER: Trying to log in with a fake email breaks the site. This is a front-end issue. It's coming from the fact that the error message is an object, rather than a string. 
+*I've just 'fixed' this. tbh, I'm not sure if it's the ideal way to handle this, but there ya go.
+
+Added a very minor degree of front-end integration. There's a lot of code reuse between the signup and login routes, so they'll need to be refactored later. It also needs to actually list what the problem is.
+
+It looks like any component that's currently using context re-renders about 4 times if there's a useEffect that checks for a user's status. 
+*Turns out this is a 'feature' of using 'strict-mode'. The double render won't occur in production.
+
+Realized that I probably don't need the meditated today boolean in the backend, since I can figure that out on the front-end. I've got it working front-side.
+
+Added a tooltip for achievements. When you hover, it tells you what it is, and gives a little description. I'm not sure if i want to house achievement info on the front-end or backend. If it's front-end, I won't need to worry about extra processing, or storage. But on the backend, I'll be able to customize and timestamp the achievments. Leaning towards backend for now. 
+
+Also, I'll need to make a separate Achievement component to dynamically render them.
+
+Added streak functionality and date-checking in the character page.
+
+TL:DR Lots of cleanup and error fixing. My code's a mess, but we're getting somewhere. I need to get better at organizing this.
+
+Next Step: Finish the character page. I keep jumping between design and functionality. It's getting somewhere, though.
