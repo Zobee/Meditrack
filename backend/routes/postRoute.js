@@ -55,7 +55,7 @@ router.route('/history').get(auth, (req,res) => {
         res.json(history)
     })
     .catch(err => {
-        res.status(400).json(err)
+        res.status(400).json(`Error: ${err}`)
     })
 })
 
@@ -80,6 +80,26 @@ router.route('/delete').delete(auth, (req,res) => {
     .catch(err => {
         res.status(400).json(`Error ${err}`)
     })
+})
+
+//Add achievement
+router.route('/addAchievement').post(auth, (req,res) => {
+    User.findById(req.user._id)
+    .then(user => {
+        if(user.character.status.achievements.some(achievements => achievements.id === req.body.id)){
+            user.character.status.achievements.push(
+                {
+                    id: req.body.id,
+                    name: req.body.name,
+                    date: dayjs().format()
+                }
+            )
+            user.save()
+            .then(res.json("Achievement Added!"))
+            .catch(err => res.status(400).json(`Error: ${err}`))
+        }
+    })
+    .catch(err => res.status(400).json(`Error ${err}`))
 })
 
 module.exports = router

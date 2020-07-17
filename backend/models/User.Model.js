@@ -31,6 +31,14 @@ const userSchema = mongoose.Schema({
             meditationHistory: {
                 type: Array,
                 default: []
+            },
+            achievements: {
+                type: Array,
+                default: []
+            },
+            health: {
+                type: Number,
+                default: 50
             }
         }
     }

@@ -111,7 +111,6 @@ I'm reusing code in a lot of places. The biggest offender is
 I should find a way to cut that shit out.
 Beyond reuse. It doesn't work great. If you reload, you'll get redirected to the landing page.
 That's cause of the big issue I've been avoiding, and that's useContext ain't working like I thought.
-*I've found a sorta solution, but it feels hacky. I'm currently using it in the 'character' component, where
 
 GAME BREAKER: Trying to log in with a fake email breaks the site. This is a front-end issue. It's coming from the fact that the error message is an object, rather than a string. 
 *I've just 'fixed' this. tbh, I'm not sure if it's the ideal way to handle this, but there ya go.
@@ -132,3 +131,82 @@ Added streak functionality and date-checking in the character page.
 TL:DR Lots of cleanup and error fixing. My code's a mess, but we're getting somewhere. I need to get better at organizing this.
 
 Next Step: Finish the character page. I keep jumping between design and functionality. It's getting somewhere, though.
+
+
+------------------------------------------------------------------------------------------------
+V 0.0.10 - Road to MVP
+
+Created an 'Achievement' component. It's using dummy data right now, but I'll create a set of achievements later. I need to find a way to determine whether an achievement has been... achieved yet.
+
+Fixed the streak function to work regardless of time of day.
+
+Split the status elements (stats, calendar, metrics, achievements) into their own separate components. A bit of clean-up/refactoring
+
+I need to add an achievements object to the backend user model. Then routes to add achievements. I think I'll make it so that achievements on the front and back use the same id numbers. So you earn an achievement, an object with an id corresponding to that achievement, and the date that achievement was earned is pushed to the achievements backend array.
+
+Right now, the Achievements and Status components are stoopit, and don't meaningfully interact with the backend at all. I've created an 'add achievement route on the backend'
+
+Also the styling is pretty bad, not gonna lie.
+
+I'm spending too much time trying to figure out how stats and items are gonna work. For now, I'll put them on the backburner and just focus on reaching MVP. For that I'll need:
+
+*A robust calendar
+*Data visualization elements for stats
+*The egg screen on sign-up
+*Better character edit/delete components
+*An overhaul of the timer component for guidance during meditations
+*The conversation mechanic
+*Achievements that actually work
+
+The above are enough to keep me busy for a while, and once I have them going, I'll feel more comfortable in gauging interest. I'll get back to the more gamey aspects later, but these are the most pressing right now.
+
+Let's break these down:
+
+The Calendar
+*Display a calendar with the days meditated filled in
+*List the current and longest streaks both textually and visually
+*The duration/frequency of meditations on any given day determines how saturated the filled in mark on the calendar is (like github's # of commits)
+*Has the ability to scroll back to look through previous months
+
+Stats Data
+*Visually displays the number of times meditated, frequency of meditation, and minutes meditated
+*Kinda like how fitness trackers display calorie information. Day-by-day, month-by-month, year-by-year comparisons
+*Option to display data in different formats. Textually, bar graph, chart, etc
+
+Sign-up Egg
+*After signing up, but before logging in, you get shown a simple animation of an egg hatching. The egg hatches into a random v-pet avatar of a random colour, and with a random name. You have the option of making a change to the name/colour of the avatar on this screen
+*Adds a bit of intrigue, and (ideally) imposes an immediate connection between the user and their meditation pal
+*Thinking I'm gonna need some MASSIF error handling here. What if the user closes the browser at this point? Is there a default I revert to?
+
+Better character edit/delete components
+*Separate into individual components?
+*Edit allows you to change name, colour, maybe species, and maybe allows you to change some of the previous conversation options you've input prior
+*Delete component's gotta be HEART-ASS-WRENCHING, with several safegaurds in place (maybe implement a security question type deal)
+
+Timer Overhaul
+*I'm thinking I don't actually need the progress-ring. Sad, cause that was the impetus for this whole project
+*Meditation should be 'guided' by your pet. It pops up to ask you some questions, and starts the meditation
+*Screen dims on start, the display disappears, and guided meditation text will appear intermittently. The frequency and content depends on the type of meditation being performed
+*Map pause to spacebar, remove the button entirely
+*Maybe I should limit the time input, or turn it into a select option
+*The TimerEnd component needs a lot of design work
+*Maybe have ambient visuals, like bubbles floating along, or something.
+*I'll need a sound to signify the end of the meditation
+
+Conversations
+*The initial meditation start conversation
+*Occasional conversation on character screen
+*The screen dims, and your character pops up, a text box appears with the content of what the character is saying. Click/tap to proceed
+*Sometimes, the character will prompt you with a question. Either multiple choice, or with an input. I'll need to find a way to design that visually
+*Character conversations will help to engage the user. Answers to questions may be used during the meditation
+*I'll need to house those answers on the backend
+
+Achievements
+*Achievement Unlocked modals
+*A cleaner display page
+*More achievements
+*Fix the backend so that it actually works
+
+Beyond that, I haven't even started on responsive/mobile design. That's another aspect that's gonna take some time.
+
+Next Step: Get Achievements running

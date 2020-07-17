@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Prompt} from 'react-router-dom'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import Achievements from '../User/User-Stats/Achievements';
 
 function Timer({timeUp}) {
     const [seconds, setSeconds] = useState(0)

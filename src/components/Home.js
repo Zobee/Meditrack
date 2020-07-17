@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
-import {AuthContext} from './AuthContext'
+//import {AuthContext} from './AuthContext'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faFacebook, faTwitter, faInstagram, faLinkedin} from '@fortawesome/free-brands-svg-icons'
@@ -49,7 +49,6 @@ let Home = () => {
             <div className="home-page-circle-1"></div>
             <div className="home-page-circle-2"></div>
             <div className="home-page-circle-3"></div>
-            <div className='home-page-circle-4'></div>
         </div>
     )
 }

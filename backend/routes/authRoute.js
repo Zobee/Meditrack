@@ -5,11 +5,6 @@ const jwt = require('jsonwebtoken')
 
 const router = require('express').Router()
 
-//Test Route
-router.route('/').get((req,res) => {
-    res.json({data: "Dummy"})
-})
-
 //New User Route
 router.route('/signup').post(async (req,res) => {
     //Make sure the inputs are valid
@@ -34,7 +29,6 @@ router.route('/signup').post(async (req,res) => {
     }catch{
         res.status(400).json("Error creating new user")
     }
-    
 })
 
 //Log in route
@@ -54,8 +48,6 @@ router.route('/login').post(async (req,res) => {
     //Create jwt
     const token = jwt.sign({_id: user._id}, process.env.SECRET_TOKEN)
     res.header('auth-token',token).send(token)
-
-    //res.json(`Welcome, ${user.username}. Your token ${token}`)
 })
 
 

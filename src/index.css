@@ -332,7 +332,7 @@ button[type=submit]:hover {
 }
 
 .exp-bar{
-  height: 1rem;
+  height: 2rem;
   background-color: green;
   margin: 0 auto;
   max-width: 50%;

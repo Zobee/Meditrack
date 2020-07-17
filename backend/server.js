@@ -22,6 +22,7 @@ app.use(express.json())
 
 const authRoute = require('./routes/authRoute')
 const postRoute = require('./routes/postRoute')
+const test = require('./routes/testRoute')
 
 mongoose.connect(
     process.env.DB_URI, 
@@ -30,6 +31,7 @@ mongoose.connect(
 
 app.use('/api/users', authRoute)
 app.use('/posts', postRoute)
+app.use('/test', test)
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
